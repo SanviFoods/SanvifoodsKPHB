@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanvi Home Foods - Select Products</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        /* Tab navigation style */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ccc;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+        .tab:hover {
+            background-color: #ddd;
+        }
+        .active-tab {
+            background-color: #25D366;
+            color: white;
+            font-weight: bold;
+        }
+        /* Hide inactive tab content */
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+        .active-content {
+            display: block;
+        }
+        .product, .menu-item, .party-item { margin: 20px 0; display: flex; align-items: center; }
+        .product img, .menu-item img, .party-item img { width: 100px; height: 100px; margin-right: 20px; border-radius: 8px; }
+        .product label, .menu-item label, .party-item label { font-size: 18px; }
+        .order-button { margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .info-content { font-size: 18px; line-height: 1.6; }
+
+        /* Green Bold Animated Text */
+        .free-delivery {
+            color: #25D366;
+            font-size: 24px;
+            font-weight: bold;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Order Now Button Styling */
+        .order-now-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .order-now-button:hover {
+            background-color: #128C36;
+        }
+
+        /* Section for Lunch and Dinner */
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        .menu-section h3 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* Party Orders Section */
+        .party-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .party-section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .party-item {
+            margin: 10px 0;
+        }
+
+        /* New style for the "Order one day prior" message */
+        .order-prior {
+            font-weight: bold;
+            color: #FF6666; /* Light Red color */
+        }
+    </style>
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active-content');
+            });
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active-content');
+            // Set the active class on the selected tab
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active-tab');
+        }
+
+        function orderOnWhatsApp(tabId) {
+            const selectedItems = [];
+            const selectedCheckboxes = document.querySelectorAll(`#${tabId} .product-checkbox, #${tabId} .menu-checkbox, #${tabId} .party-item-checkbox`);
+            
+            selectedCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const itemName = checkbox.getAttribute('data-name');
+                    const itemPrice = checkbox.getAttribute('data-price');
+                    selectedItems.push(`${itemName} - ${itemPrice}/-`);
+                }
+            });
+
+            if (selectedItems.length > 0) {
+                const message = "I would like to order the following items: %0A" + selectedItems.join("%0A");
+                const whatsappUrl = `https://wa.me/919949942263?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+            } else {
+                alert("Please select at least one item to order.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Sanvi Home Foods</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active-tab" data-tab="info" onclick="switchTab('info')">Sanvi Home Foods Info</div>
+        <div class="tab" data-tab="products" onclick="switchTab('products')">Select Products</div>
+        <div class="tab" data-tab="todays-menu" onclick="switchTab('todays-menu')">Tomorrow's Menu</div>
+        <div class="tab" data-tab="party-orders" onclick="switchTab('party-orders')">Party Orders (4-8 Members)</div>
+    </div>
+
+    <!-- Tab Content -->
+    <!-- Home Food Info Tab Content -->
+    <div id="info" class="tab-content active-content">
+        <h2>Sanvi Home Foods (Orders accepted in KPHB only)</h2>
+        <!-- Free Delivery Text -->
+        <p class="free-delivery">Free Delivery in KPHB Area! No Minimum order</p>	
+        <div class="info-content">
+            <p><strong>Welcome to Sanvi Home Foods – A Taste of Home, Full of Health</strong></p>
+            <p>In today’s busy world, many of us rely on restaurant meals, often unaware of the risks that come with them. Outside food can be loaded with preservatives, artificial colors, and reused oils, leading to serious health issues over time. Like many families, we experienced this when one of our loved relatives faced health problems due to years of eating out. This made us realize that the food we prepare at home, with care and fresh ingredients, is the best way to stay healthy.</p>
+            <p>At Sanvi Home Foods, we are here to give you safe, healthy, and hygienic meals – just like home-cooked food. Every dish is made with fresh ingredients, with no preservatives, no artificial colors, and no reused oils – exactly how your mother would prepare it.</p>
+            <p>We know that many of you, whether you’re bachelors, roommates, or working professionals, miss the comfort of home-cooked meals. That’s why we’re committed to delivering food that feels like home, right to your doorstep. Because good health and happiness start with the food we eat.</p>
+            <p>Welcome to a healthier, homely dining experience with Sanvi Home Foods.</p>
+
+            <p><strong>Contact Us:</strong></p>
+            <p>Phone: +919949942263</p>
+            <p>Email: <a href="mailto:sanvihomefoodskphb@gmail.com">sanvihomefoodskphb@gmail.com</a></p>
+        </div>
+    </div>
+
+    <!-- Select Products Tab Content -->
+    <div id="products" class="tab-content">
+        <h2>Select Products</h2>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Avakkai Mango Pickle" data-price="60">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
+            <label>Avakkai Mango Pickle - 60/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Spicy Tomato Chutney" data-price="50">
+            <img src="https://example.com/tomato-chutney.jpg" alt="Spicy Tomato Chutney">
+            <label>Spicy Tomato Chutney - 50/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Homemade Curd Rice" data-price="40">
+            <img src="https://example.com/curd-rice.jpg" alt="Homemade Curd Rice">
+            <label>Homemade Curd Rice - 40/-</label>
+        </div>
+
+        <!-- Free Delivery Text -->
+        <p class="free-delivery">Free Delivery in KPHB Area!</p>
+
+        <!-- Order Now Button -->
+        <button class="order-now-button" onclick="orderOnWhatsApp('products')">Order Now</button>
+    </div>
+
+    <!-- Tomorrow's Menu Tab Content -->
+    <div id="todays-menu" class="tab-content">
+        <h2>Tomorrow's Menu(Please Order till today 6PM)</h2>
+
+        <!-- Lunch Items Section -->
+        <div class="menu-section">
+            <h3>Lunch Items</h3>
+            <div class="menu-item">
+                <input type="checkbox" class="menu-checkbox" data-name="Vegetable Biryani" data-price="150">
+                <img src="https://example.com/vegetable-biryani.jpg" alt="Vegetable Biryani">
+                <label>Vegetable Biryani - 150/-</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" class="menu-checkbox" data-name="Paneer Butter Masala" data-price="120">
+                <img src="https://example.com/paneer-butter-masala.jpg" alt="Paneer Butter Masala">
+                <label>Paneer Butter Masala - 120/-</label>
+            </div>
+        </div>
+
+        <!-- Dinner Items Section -->
+        <div class="menu-section">
+            <h3>Dinner Items</h3>
+            <div class="menu-item">
+                <input type="checkbox" class="menu-checkbox" data-name="Masala Dosa" data-price="80">
+                <img src="https://example.com/masala-dosa.jpg" alt="Masala Dosa">
+                <label>Masala Dosa - 80/-</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" class="menu-checkbox" data-name="Fruit Salad" data-price="60">
+                <img src="https://example.com/fruit-salad.jpg" alt="Fruit Salad">
+                <label>Fruit Salad - 60/-</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" class="menu-checkbox" data-name="Buttermilk" data-price="30">
+                <img src="https://example.com/buttermilk.jpg" alt="Buttermilk">
+                <label>Buttermilk - 30/-</label>
+            </div>
+        </div>
+
+        <!-- Free Delivery Text -->
+        <p class="free-delivery">Free Delivery in KPHB Area!</p>
+
+        <!-- Order Now Button -->
+        <button class="order-now-button" onclick="orderOnWhatsApp('todays-menu')">Order Now</button>
+    </div>
+
+    <!-- Party Orders Tab Content -->
+    <div id="party-orders" class="tab-content">
+        <div class="party-section">
+            <h2>Party Orders (4-8 Members)</h2>
+            <p>Planning a birthday party, New Year celebration, or bachelor party? Order wholesome, delicious, and healthy food for your group of 4 to 8 members. We offer a variety of South Indian meals and biryanis that are sure to impress your guests!</p>
+            <p><strong>Why Choose Sanvi Home Foods for Party Orders?</strong></p>
+            <ul>
+                <li>Order one day prior to ensure availability.</li>
+                <li>Special menu options for parties such as Biryani, South Indian meals, and more.</li>
+                <li>Minimal cost compared to food delivery apps.</li>
+                <li>Health-conscious and hygienic food made with fresh ingredients, no preservatives, no artificial colors, and no reused oils.</li>
+            </ul>
+            <p class="order-prior">Order one day prior to ensure availability.</p>
+            <p><strong>Contact us to place your party order today!</strong></p>
+            
+            <!-- Party Meal Options -->
+            <div class="party-item">
+                <input type="checkbox" class="party-item-checkbox" data-name="Vegetable Biryani (4 Members)" data-price="600">
+                <img src="https://example.com/vegetable-biryani.jpg" alt="Vegetable Biryani">
+                <label>Vegetable Biryani (4 Members) - 600/-</label>
+            </div>
+            <div class="party-item">
+                <input type="checkbox" class="party-item-checkbox" data-name="South Indian Meal (4 Members)" data-price="500">
+                <img src="https://example.com/south-indian-meal.jpg" alt="South Indian Meal">
+                <label>South Indian Meal (4 Members) - 500/-</label>
+            </div>
+        </div>
+
+        <!-- Free Delivery Text -->
+        <p class="free-delivery">Free Delivery in KPHB Area!</p>
+
+        <!-- Order Now Button -->
+        <button class="order-now-button" onclick="orderOnWhatsApp('party-orders')">Order Now</button>
+    </div>
+
+</body>
+</html>
