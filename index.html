@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanvi Home Foods - Select Products</title>
+    <title>Sanvi Home Foods - Home Made Pickles</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         /* Tab navigation style */
@@ -105,6 +105,51 @@
             font-weight: bold;
             color: #FF6666; /* Light Red color */
         }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            .tab {
+                font-size: 16px;
+                padding: 12px;
+            }
+            .product img, .menu-item img, .party-item img {
+                width: 80px;
+                height: 80px;
+            }
+            .product label, .menu-item label, .party-item label {
+                font-size: 16px;
+            }
+            .order-now-button {
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                margin: 10px;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+            .tab {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .product img, .menu-item img, .party-item img {
+                width: 70px;
+                height: 70px;
+            }
+            .product label, .menu-item label, .party-item label {
+                font-size: 14px;
+            }
+            .order-now-button {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
     </style>
     <script>
         function switchTab(tabName) {
@@ -142,6 +187,29 @@
                 alert("Please select at least one item to order.");
             }
         }
+        // New function to load product HTML files dynamically
+        function loadProducts() {
+            const productContainer = document.getElementById('products'); // Home Made Pickles tab container
+            
+            // Define the list of product HTML files - this can be updated as you add more products
+            const products = ["D:\products\products_sample_product.html"]; // Example path to product file
+
+            products.forEach(product => {
+                fetch(product)
+                    .then(response => response.text())
+                    .then(html => {
+                        // Create a container for each product and add the HTML content
+                        const div = document.createElement('div');
+                        div.classList.add('product');
+                        div.innerHTML = html;
+                        productContainer.appendChild(div);
+                    })
+                    .catch(error => console.error('Error loading product:', error));
+            });
+        }
+
+        // Call the loadProducts function when the window loads
+        window.onload = loadProducts;	
     </script>
 </head>
 <body>
@@ -150,7 +218,7 @@
     <!-- Tabs -->
     <div class="tabs">
         <div class="tab active-tab" data-tab="info" onclick="switchTab('info')">Sanvi Home Foods Info</div>
-        <div class="tab" data-tab="products" onclick="switchTab('products')">Select Products</div>
+        <div class="tab" data-tab="products" onclick="switchTab('products')">Home Made Pickles</div>
         <div class="tab" data-tab="todays-menu" onclick="switchTab('todays-menu')">Tomorrow's Menu</div>
         <div class="tab" data-tab="party-orders" onclick="switchTab('party-orders')">Party Orders (4-8 Members)</div>
     </div>
@@ -169,18 +237,23 @@
             <p>Welcome to a healthier, homely dining experience with Sanvi Home Foods.</p>
 
             <p><strong>Contact Us:</strong></p>
-            <p>Phone: +919949942263</p>
+            <p>Phone: <a href="tel:+919949942263">+919949942263</a></p>
             <p>Email: <a href="mailto:sanvihomefoodskphb@gmail.com">sanvihomefoodskphb@gmail.com</a></p>
         </div>
     </div>
 
-    <!-- Select Products Tab Content -->
+    <!-- Home Made Pickles Tab Content -->
     <div id="products" class="tab-content">
-        <h2>Select Products</h2>
+        <h2>Home Made Pickles</h2>
         <div class="product">
             <input type="checkbox" class="product-checkbox" data-name="Avakkai Mango Pickle" data-price="60">
             <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
             <label>Avakkai Mango Pickle - 60/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Mango Pickle" data-price="700">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
+            <label>Mango Pickle - 700/-</label>
         </div>
         <div class="product">
             <input type="checkbox" class="product-checkbox" data-name="Spicy Tomato Chutney" data-price="50">
@@ -213,10 +286,10 @@
                 <label>Vegetable Biryani - 150/-</label>
             </div>
             <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Chicken Biryani" data-price="200">
+                <input type="checkbox" class="menu-checkbox" data-name="Chicken Biryani" data-price="10000">
                 <img src="https://example.com/vegetable-biryani.jpg" alt="Chicken Biryani">
-                <label>Chicken Biryani - 200/-</label>
-            </div>            
+                <label>Chicken Biryani - 10000-</label>
+            </div>
             <div class="menu-item">
                 <input type="checkbox" class="menu-checkbox" data-name="Paneer Butter Masala" data-price="120">
                 <img src="https://example.com/paneer-butter-masala.jpg" alt="Paneer Butter Masala">
@@ -255,11 +328,10 @@
     <div id="party-orders" class="tab-content">
         <div class="party-section">
             <h2>Party Orders (4-8 Members)</h2>
-            <p>Planning a birthday party, New Year celebration, or bachelor party? Order wholesome, delicious, and healthy food for your group of 4 to 8 members. We offer a variety of South Indian meals and biryanis that are sure to impress your guests!</p>
+            <p>Planning a birthday party, New Year celebration, or bachelor party? Order wholesome, delicious, and healthy food for your group of 4 to 8 members. We offer a variety of South Indian meals and biryanies that are sure to impress your guests!</p>
             <p><strong>Why Choose Sanvi Home Foods for Party Orders?</strong></p>
             <ul>
-                <li>Order one day prior to ensure availability.</li>
-                <li>Special menu options for parties such as Biryani, South Indian meals, and more.</li>
+                <li>Special menu options for parties such as Biryanies, South Indian meals, and more.</li>
                 <li>Minimal cost compared to food delivery apps.</li>
                 <li>Health-conscious and hygienic food made with fresh ingredients, no preservatives, no artificial colors, and no reused oils.</li>
             </ul>
