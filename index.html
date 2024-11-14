@@ -36,9 +36,9 @@
         .active-content {
             display: block;
         }
-        .product, .menu-item, .party-item { margin: 20px 0; display: flex; align-items: center; }
-        .product img, .menu-item img, .party-item img { width: 100px; height: 100px; margin-right: 20px; border-radius: 8px; }
-        .product label, .menu-item label, .party-item label { font-size: 18px; }
+        .product, .menu-item, .party-item, .Home-Made-Podulu { margin: 20px 0; display: flex; align-items: center; }
+        .product img, .menu-item img, .party-item img, .Home-Made-Podulu img { width: 100px; height: 100px; margin-right: 20px; border-radius: 8px; }
+        .product label, .menu-item label, .party-item label, .Home-Made-Podulu label  { font-size: 18px; }
         .order-button { margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer; }
         .info-content { font-size: 18px; line-height: 1.6; }
 
@@ -114,11 +114,11 @@
                 font-size: 16px;
                 padding: 12px;
             }
-            .product img, .menu-item img, .party-item img {
+            .product img, .menu-item img, .party-item img, .Home-Made-Podulu img {
                 width: 80px;
                 height: 80px;
             }
-            .product label, .menu-item label, .party-item label {
+            .product label, .menu-item label, .party-item label, .Home-Made-Podulu label {
                 font-size: 16px;
             }
             .order-now-button {
@@ -138,11 +138,11 @@
                 font-size: 14px;
                 padding: 10px;
             }
-            .product img, .menu-item img, .party-item img {
+            .product img, .menu-item img, .party-item img, .Home-Made-Podulu img {
                 width: 70px;
                 height: 70px;
             }
-            .product label, .menu-item label, .party-item label {
+            .product label, .menu-item label, .party-item label, .Home-Made-Podulu label {
                 font-size: 14px;
             }
             .order-now-button {
@@ -221,6 +221,8 @@
         <div class="tab" data-tab="products" onclick="switchTab('products')">Home Made Pickles</div>
         <div class="tab" data-tab="todays-menu" onclick="switchTab('todays-menu')">Tomorrow's Menu</div>
         <div class="tab" data-tab="party-orders" onclick="switchTab('party-orders')">Party Orders (4-8 Members)</div>
+	<div class="tab" data-tab="Home-Made-Podulu" onclick="switchTab('Home-Made-Podulu')">Home-Made-Podulu</div>
+	<div class="tab" data-tab="Home-Masala's" onclick="switchTab('Home-Masala's')">Home-Masala's</div>
     </div>
 
     <!-- Tab Content -->
@@ -228,7 +230,7 @@
     <div id="info" class="tab-content active-content">
         <h2>Sanvi Home Foods (Orders accepted in KPHB only)</h2>
         <!-- Free Delivery Text -->
-        <p class="free-delivery">Free Delivery in KPHB Area! No Minimum order</p>	
+        <p class="free-delivery">Free Delivery in KPHB Area!</p>	
         <div class="info-content">
             <p><strong>Welcome to Sanvi Home Foods – A Taste of Home, Full of Health</strong></p>
             <p>In today’s busy world, many of us rely on restaurant meals, often unaware of the risks that come with them. Outside food can be loaded with preservatives, artificial colors, and reused oils, leading to serious health issues over time. Like many families, we experienced this when one of our loved relatives faced health problems due to years of eating out. This made us realize that the food we prepare at home, with care and fresh ingredients, is the best way to stay healthy.</p>
@@ -242,6 +244,57 @@
         </div>
     </div>
 
+    <!-- Home Made Pickles Tab Content -->
+    <div id="products" class="tab-content">
+        <h2>Home Made Pickles</h2>
+	<h3>Non-Veg Pickles Items</h3>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Chicken Pickle" data-price="60">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Chicken Pickle">
+            <label>Chicken Pickle - 60/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Prawns pickle" data-price="700">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Prawns pickle">
+            <label>Prawns pickle - 700/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Chicken Pickle boneless" data-price="50">
+            <img src="https://example.com/tomato-chutney.jpg" alt="Chicken Pickle boneless">
+            <label>Chicken Pickle boneless - 50/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Andhra Fish Pickle" data-price="40">
+            <img src="https://example.com/curd-rice.jpg" alt="Andhra Fish Pickle">
+            <label>Andhra Fish Pickle - 40/-</label>
+        </div>
+	<h3>Veg Pickles Items</h3>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Avakkai Mango Pickle" data-price="60">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
+            <label>Avakkai Mango Pickle - 60/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Mango Pickle" data-price="700">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
+            <label>Mango Pickle - 700/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Spicy Tomato Chutney" data-price="50">
+            <img src="https://example.com/tomato-chutney.jpg" alt="Spicy Tomato Chutney">
+            <label>Spicy Tomato Chutney - 50/-</label>
+        </div>
+        <div class="product">
+            <input type="checkbox" class="product-checkbox" data-name="Homemade Curd Rice" data-price="40">
+            <img src="https://example.com/curd-rice.jpg" alt="Homemade Curd Rice">
+            <label>Homemade Curd Rice - 40/-</label>
+        </div>
+        <!-- Free Delivery Text -->
+        <p class="free-delivery">Free Delivery in KPHB Area!</p>
+
+        <!-- Order Now Button -->
+        <button class="order-now-button" onclick="orderOnWhatsApp('products')">Order Now</button>
+    </div>
     <!-- Home Made Pickles Tab Content -->
     <div id="products" class="tab-content">
         <h2>Home Made Pickles</h2>
@@ -272,7 +325,6 @@
         <!-- Order Now Button -->
         <button class="order-now-button" onclick="orderOnWhatsApp('products')">Order Now</button>
     </div>
-
     <!-- Tomorrow's Menu Tab Content -->
     <div id="todays-menu" class="tab-content">
         <h2>Tomorrow's Menu(Please Order till today 6PM)</h2>
@@ -316,12 +368,42 @@
                 <label>Buttermilk - 30/-</label>
             </div>
         </div>
-
         <!-- Free Delivery Text -->
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
 
         <!-- Order Now Button -->
         <button class="order-now-button" onclick="orderOnWhatsApp('todays-menu')">Order Now</button>
+    </div>
+
+
+    <div id="Home-Made-Podulu" class="tab-content">
+        <h2>Home-Made-Podulu</h2>
+        <div class="Home-Made-Podulu">
+            <input type="checkbox" class="product-checkbox" data-name="Karappodi" data-price="60">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Karappodi">
+            <label>Karappodi - 60/-</label>
+        </div>
+        <div class="Home-Made-Podulu">
+            <input type="checkbox" class="product-checkbox" data-name="Mango Pickle" data-price="700">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
+            <label>Mango Pickle - 700/-</label>
+        </div>
+        <div class="Home-Made-Podulu">
+            <input type="checkbox" class="product-checkbox" data-name="Spicy Tomato Chutney" data-price="50">
+            <img src="https://example.com/tomato-chutney.jpg" alt="Spicy Tomato Chutney">
+            <label>Spicy Tomato Chutney - 50/-</label>
+        </div>
+        <div class="Home-Made-Podulu">
+            <input type="checkbox" class="product-checkbox" data-name="Homemade Curd Rice" data-price="40">
+            <img src="https://example.com/curd-rice.jpg" alt="Homemade Curd Rice">
+            <label>Homemade Curd Rice - 40/-</label>
+        </div>
+
+        <!-- Free Delivery Text -->
+        <p class="free-delivery">Free Delivery in KPHB Area!</p>
+
+        <!-- Order Now Button -->
+        <button class="order-now-button" onclick="orderOnWhatsApp('Home-Made-Podulu')">Order Now</button>
     </div>
 
     <!-- Party Orders Tab Content -->
