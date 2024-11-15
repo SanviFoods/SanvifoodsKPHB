@@ -181,7 +181,7 @@
 
             if (selectedItems.length > 0) {
                 const message = "I would like to order the following items: %0A" + selectedItems.join("%0A");
-                const whatsappUrl = `https://wa.me/919949942263?text=${message}`;
+                const whatsappUrl = `https://wa.me/919705969050?text=${message}`;
                 window.open(whatsappUrl, '_blank');
             } else {
                 alert("Please select at least one item to order.");
@@ -219,10 +219,10 @@
     <div class="tabs">
         <div class="tab active-tab" data-tab="info" onclick="switchTab('info')">Sanvi Home Foods Info</div>
         <div class="tab" data-tab="products" onclick="switchTab('products')">Home Made Pickles</div>
-        <div class="tab" data-tab="todays-menu" onclick="switchTab('todays-menu')">Tomorrow's Menu</div>
+        <div class="tab" data-tab="todays-menu" onclick="switchTab('todays-menu')">Daily Menu</div>
         <div class="tab" data-tab="party-orders" onclick="switchTab('party-orders')">Party Orders (4-8 Members)</div>
 	<div class="tab" data-tab="Home-Made-Podulu" onclick="switchTab('Home-Made-Podulu')">Home-Made-Podulu</div>
-	<div class="tab" data-tab="Home-Masala's" onclick="switchTab('Home-Masala's')">Home-Masala's</div>
+
     </div>
 
     <!-- Tab Content -->
@@ -239,7 +239,7 @@
             <p>Welcome to a healthier, homely dining experience with Sanvi Home Foods.</p>
 
             <p><strong>Contact Us:</strong></p>
-            <p>Phone: <a href="tel:+919949942263">+919949942263</a></p>
+            <p>Phone: <a href="tel:+919705969050">+919705969050</a></p>
             <p>Email: <a href="mailto:sanvihomefoodskphb@gmail.com">sanvihomefoodskphb@gmail.com</a></p>
         </div>
     </div>
@@ -248,47 +248,9 @@
     <div id="products" class="tab-content">
         <h2>Home Made Pickles</h2>
 	<h3>Non-Veg Pickles Items</h3>
-        <div class="product">
-            <input type="checkbox" class="product-checkbox" data-name="Chicken Pickle" data-price="60">
-            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Chicken Pickle">
-            <label>Chicken Pickle - 60/-</label>
-        </div>
-        <div class="product">
-            <input type="checkbox" class="product-checkbox" data-name="Prawns pickle" data-price="700">
-            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Prawns pickle">
-            <label>Prawns pickle - 700/-</label>
-        </div>
-        <div class="product">
-            <input type="checkbox" class="product-checkbox" data-name="Chicken Pickle boneless" data-price="50">
-            <img src="https://example.com/tomato-chutney.jpg" alt="Chicken Pickle boneless">
-            <label>Chicken Pickle boneless - 50/-</label>
-        </div>
-        <div class="product">
-            <input type="checkbox" class="product-checkbox" data-name="Andhra Fish Pickle" data-price="40">
-            <img src="https://example.com/curd-rice.jpg" alt="Andhra Fish Pickle">
-            <label>Andhra Fish Pickle - 40/-</label>
-        </div>
+	<h5>Will be added Soon</h5>
 	<h3>Veg Pickles Items</h3>
-        <div class="product">
-            <input type="checkbox" class="product-checkbox" data-name="Avakkai Mango Pickle" data-price="60">
-            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
-            <label>Avakkai Mango Pickle - 60/-</label>
-        </div>
-        <div class="product">
-            <input type="checkbox" class="product-checkbox" data-name="Mango Pickle" data-price="700">
-            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
-            <label>Mango Pickle - 700/-</label>
-        </div>
-        <div class="product">
-            <input type="checkbox" class="product-checkbox" data-name="Spicy Tomato Chutney" data-price="50">
-            <img src="https://example.com/tomato-chutney.jpg" alt="Spicy Tomato Chutney">
-            <label>Spicy Tomato Chutney - 50/-</label>
-        </div>
-        <div class="product">
-            <input type="checkbox" class="product-checkbox" data-name="Homemade Curd Rice" data-price="40">
-            <img src="https://example.com/curd-rice.jpg" alt="Homemade Curd Rice">
-            <label>Homemade Curd Rice - 40/-</label>
-        </div>
+        <h5>Will be added Soon</h5>
         <!-- Free Delivery Text -->
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
 
@@ -300,22 +262,22 @@
         <h2>Home Made Pickles</h2>
         <div class="product">
             <input type="checkbox" class="product-checkbox" data-name="Avakkai Mango Pickle" data-price="60">
-            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle" class="zoom-image">
             <label>Avakkai Mango Pickle - 60/-</label>
         </div>
         <div class="product">
             <input type="checkbox" class="product-checkbox" data-name="Mango Pickle" data-price="700">
-            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
+            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle" class="zoom-image">
             <label>Mango Pickle - 700/-</label>
         </div>
         <div class="product">
             <input type="checkbox" class="product-checkbox" data-name="Spicy Tomato Chutney" data-price="50">
-            <img src="https://example.com/tomato-chutney.jpg" alt="Spicy Tomato Chutney">
+            <img src="https://example.com/tomato-chutney.jpg" alt="Spicy Tomato Chutney" class="zoom-image">
             <label>Spicy Tomato Chutney - 50/-</label>
         </div>
         <div class="product">
             <input type="checkbox" class="product-checkbox" data-name="Homemade Curd Rice" data-price="40">
-            <img src="https://example.com/curd-rice.jpg" alt="Homemade Curd Rice">
+            <img src="https://example.com/curd-rice.jpg" alt="Homemade Curd Rice" class="zoom-image">
             <label>Homemade Curd Rice - 40/-</label>
         </div>
 
@@ -327,45 +289,40 @@
     </div>
     <!-- Tomorrow's Menu Tab Content -->
     <div id="todays-menu" class="tab-content">
-        <h2>Tomorrow's Menu(Please Order till today 6PM)</h2>
+        <h1>15-11-2024 Menu</h1>
 
         <!-- Lunch Items Section -->
         <div class="menu-section">
-            <h3>Lunch Items</h3>
+            <h3>Lunch Items(Should be order befor 8AM)</h3>
             <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Vegetable Biryani" data-price="150">
-                <img src="https://example.com/vegetable-biryani.jpg" alt="Vegetable Biryani">
-                <label>Vegetable Biryani - 150/-</label>
+                <input type="checkbox" class="menu-checkbox" data-name="Mashroom Kaaju curry" data-price="45">
+                <img src="https://i.postimg.cc/6qLGCWZv/Mashroom-Kaaju.png" alt="Mashroom Kaaju curry" class="zoom-image">
+                <label>Mashroom Kaaju curry - 45/-</label>
             </div>
             <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Chicken Biryani" data-price="10000">
-                <img src="https://example.com/vegetable-biryani.jpg" alt="Chicken Biryani">
-                <label>Chicken Biryani - 10000-</label>
+                <input type="checkbox" class="menu-checkbox" data-name="Mulakkada Tomato Curry" data-price="30">
+                <img src="https://i.postimg.cc/CKgCBQXX/Mulakkada-Tomato.jpg" alt="Mulakkada Tomato Curry" class="zoom-image">
+                <label>Mulakkada Tomato Curry - 30/-</label>
             </div>
             <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Paneer Butter Masala" data-price="120">
-                <img src="https://example.com/paneer-butter-masala.jpg" alt="Paneer Butter Masala">
-                <label>Paneer Butter Masala - 120/-</label>
+                <input type="checkbox" class="menu-checkbox" data-name="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle)" data-price="90">
+                <img src="https://i.postimg.cc/RF9mNK74/Meals.jpg" alt="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle)" class="zoom-image">
+                <label>Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle) - 90/-</label>
             </div>
         </div>
 
         <!-- Dinner Items Section -->
         <div class="menu-section">
-            <h3>Dinner Items</h3>
+            <h3>Dinner Items (Should be order befor 3PM)</h3>
             <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Masala Dosa" data-price="80">
-                <img src="https://example.com/masala-dosa.jpg" alt="Masala Dosa">
-                <label>Masala Dosa - 80/-</label>
+                <input type="checkbox" class="menu-checkbox" data-name="Paneer Curry" data-price="45">
+                <img src="https://i.postimg.cc/sgybPsB4/Paneer-Curry.jpg" alt="Paneer Curry" class="zoom-image">
+                <label>Paneer Curry - 45/-</label>
             </div>
             <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Fruit Salad" data-price="60">
-                <img src="https://example.com/fruit-salad.jpg" alt="Fruit Salad">
-                <label>Fruit Salad - 60/-</label>
-            </div>
-            <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Buttermilk" data-price="30">
-                <img src="https://example.com/buttermilk.jpg" alt="Buttermilk">
-                <label>Buttermilk - 30/-</label>
+                <input type="checkbox" class="menu-checkbox" data-name="Aalu Curry" data-price="30">
+                <img src="https://i.postimg.cc/dtDhscQn/Aaly-Fry.jpg" alt="Aalu Curry" class="zoom-image">
+                <label>Aalu Curry - 30/-</label>
             </div>
         </div>
         <!-- Free Delivery Text -->
@@ -378,26 +335,8 @@
 
     <div id="Home-Made-Podulu" class="tab-content">
         <h2>Home-Made-Podulu</h2>
-        <div class="Home-Made-Podulu">
-            <input type="checkbox" class="product-checkbox" data-name="Karappodi" data-price="60">
-            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Karappodi">
-            <label>Karappodi - 60/-</label>
-        </div>
-        <div class="Home-Made-Podulu">
-            <input type="checkbox" class="product-checkbox" data-name="Mango Pickle" data-price="700">
-            <img src="https://maayeka.com/wp-content/uploads/2020/05/avakkai-mango-pickle-avakaya.jpg" alt="Avakkai Mango Pickle">
-            <label>Mango Pickle - 700/-</label>
-        </div>
-        <div class="Home-Made-Podulu">
-            <input type="checkbox" class="product-checkbox" data-name="Spicy Tomato Chutney" data-price="50">
-            <img src="https://example.com/tomato-chutney.jpg" alt="Spicy Tomato Chutney">
-            <label>Spicy Tomato Chutney - 50/-</label>
-        </div>
-        <div class="Home-Made-Podulu">
-            <input type="checkbox" class="product-checkbox" data-name="Homemade Curd Rice" data-price="40">
-            <img src="https://example.com/curd-rice.jpg" alt="Homemade Curd Rice">
-            <label>Homemade Curd Rice - 40/-</label>
-        </div>
+	<h5>Will be added soon</h5>
+        
 
         <!-- Free Delivery Text -->
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
@@ -423,13 +362,18 @@
             <!-- Party Meal Options -->
             <div class="party-item">
                 <input type="checkbox" class="party-item-checkbox" data-name="Vegetable Biryani (4 Members)" data-price="600">
-                <img src="https://example.com/vegetable-biryani.jpg" alt="Vegetable Biryani">
+                <img src="https://i.postimg.cc/ZRp6btTC/Veg-Biryani.jpg" alt="Vegetable Biryani" class="zoom-image">
                 <label>Vegetable Biryani (4 Members) - 600/-</label>
             </div>
             <div class="party-item">
                 <input type="checkbox" class="party-item-checkbox" data-name="South Indian Meal (4 Members)" data-price="500">
-                <img src="https://example.com/south-indian-meal.jpg" alt="South Indian Meal">
+                <img src="https://i.postimg.cc/RF9mNK74/Meals.jpg" alt="South Indian Meal" class="zoom-image">
                 <label>South Indian Meal (4 Members) - 500/-</label>
+            </div>
+            <div class="party-item">
+                <input type="checkbox" class="party-item-checkbox" data-name="Chicken Dum Biryani Family Pack (Serves 3-4)" data-price="850">
+                <img src="https://i.postimg.cc/ZRQ3xbV7/Chicken-Dum-biryani.webp" alt="Chicken Dum Biryani Family Pack (Serves 3-4)" class="zoom-image">
+                <label>Chicken Dum Biryani Family Pack (Serves 3-4) - 850/-</label>
             </div>
         </div>
 
@@ -439,6 +383,16 @@
         <!-- Order Now Button -->
         <button class="order-now-button" onclick="orderOnWhatsApp('party-orders')">Order Now</button>
     </div>
+<!-- CSS for Zoom Effect -->
+<style>
+    .zoom-image {
+        transition: transform 0.3s ease; /* Smooth transition */
+        transform-origin: left center; /* Anchor zoom to the left side */
+    }
+    .zoom-image:hover {
+        transform: scale(4.5); /* Scale up (adjust zoom level as needed) */
+    }
+</style>
 
 </body>
 </html>
