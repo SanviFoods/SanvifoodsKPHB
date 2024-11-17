@@ -56,7 +56,7 @@
             100% { transform: translateY(0); }
         }
 
-        /* Order Now Button Styling */
+        /* Order Now on WhatsApp Button Styling */
         .order-now-button {
             margin-top: 20px;
             padding: 12px 25px;
@@ -149,6 +149,70 @@
                 font-size: 16px;
                 padding: 12px;
             }
+	    }
+        .menu-section {
+            margin-bottom: 20px;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        .menu-item img:hover {
+            transform: scale(2.9);
+        }
+        .menu-item label {
+            margin-left: 10px;
+        }
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-left: 2px;
+        }
+        .quantity-control button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .quantity-control button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .quantity-input {
+            width: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+        }
+        .free-delivery {
+            font-weight: bold;
+            color: green;
+            margin-top: 20px;
+        }
+        .order-now-button {
+            display: block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .order-now-button:hover {
+            background-color: #218838;
+        }
         }
     </style>
     <script>
@@ -167,26 +231,61 @@
             document.querySelector(`[data-tab="${tabName}"]`).classList.add('active-tab');
         }
 
-        function orderOnWhatsApp(tabId) {
-            const selectedItems = [];
+function changeQuantity(button, change) {
+        const input = button.parentElement.querySelector(".quantity-input");
+        let currentValue = parseInt(input.value) || 1;
+        currentValue += change;
+
+        if (currentValue < 1) {
+            currentValue = 1; // Prevent values less than 1
+        }
+
+        input.value = currentValue;
+    }
+
+    function orderOnWhatsApp() {
+        let orderMessage = "Hi, I would like to order the following items:\n\n";
+        let grandTotal = 0;
+        let itemsSelected = false;
+
+        // Loop through each tab
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            const tabId = tab.getAttribute('data-tab'); // Get tab ID
+
+            // Select all checkboxes inside this tab (product, menu, party items)
             const selectedCheckboxes = document.querySelectorAll(`#${tabId} .product-checkbox, #${tabId} .menu-checkbox, #${tabId} .party-item-checkbox`);
-            
+
             selectedCheckboxes.forEach(checkbox => {
                 if (checkbox.checked) {
-                    const itemName = checkbox.getAttribute('data-name');
-                    const itemPrice = checkbox.getAttribute('data-price');
-                    selectedItems.push(`${itemName} - ${itemPrice}/-`);
+                    itemsSelected = true;
+                    const itemName = checkbox.getAttribute("data-name");
+                    const itemPrice = parseInt(checkbox.getAttribute("data-price"));
+                    const quantityInput = checkbox.closest('.menu-item').querySelector(".quantity-input");
+                    const quantity = parseInt(quantityInput.value) || 1;
+                    const totalPrice = quantity * itemPrice;
+
+                    grandTotal += totalPrice;
+
+                    // Add item details to order message
+                    orderMessage += `${itemName} - ${itemPrice}/- (Quantity: ${quantity}, Total: ${totalPrice}/-)\n`;
                 }
             });
+        });
 
-            if (selectedItems.length > 0) {
-                const message = "I would like to order the following items: %0A" + selectedItems.join("%0A");
-                const whatsappUrl = `https://wa.me/919705969050?text=${message}`;
-                window.open(whatsappUrl, '_blank');
-            } else {
-                alert("Please select at least one item to order.");
-            }
+        if (!itemsSelected) {
+            // Alert the user if no items are selected
+            alert("Please select at least one item before placing the order.");
+            return;
         }
+
+        // Add grand total and message to the order
+        orderMessage += `\nGrand Total: ${grandTotal}/-\n\nPlease confirm my order.`;
+        const encodedMessage = encodeURIComponent(orderMessage);
+        const whatsappURL = `https://wa.me/9705969050?text=${encodedMessage}`;
+
+        window.open(whatsappURL, "_blank");
+    }
         // New function to load product HTML files dynamically
         function loadProducts() {
             const productContainer = document.getElementById('products'); // Home Made Pickles tab container
@@ -211,6 +310,8 @@
         // Call the loadProducts function when the window loads
         window.onload = loadProducts;	
     </script>
+
+
 </head>
 <body>
     <h1>Sanvi Home Foods</h1>
@@ -244,19 +345,27 @@
         </div>
     </div>
 
-    <!-- Home Made Pickles Tab Content -->
-    <div id="products" class="tab-content">
-        <h2>Home Made Pickles</h2>
-	<h3>Non-Veg Pickles Items</h3>
-	<h5>Will be added Soon</h5>
-	<h3>Veg Pickles Items</h3>
-        <h5>Will be added Soon</h5>
-        <!-- Free Delivery Text -->
-        <p class="free-delivery">Free Delivery in KPHB Area!</p>
+<!-- Home Made Pickles Tab Content -->
+<div id="products" class="tab-content">
+    <h2>Home Made Pickles</h2>
 
-        <!-- Order Now Button -->
-        <button class="order-now-button" onclick="orderOnWhatsApp('products')">Order Now</button>
-    </div>
+    <!-- Non-Veg Pickles Items -->
+    <h3>Non-Veg Pickles Items</h3>
+    <h5>Will be added Soon</h5>
+
+    <!-- Veg Pickles Items -->
+    <h3>Veg Pickles Items</h3>
+    <h5>Will be added Soon</h5>
+
+    
+
+    <!-- Free Delivery Text -->
+    <p class="free-delivery">Free Delivery in KPHB Area!</p>
+
+    <!-- Order Now Button -->
+    <button class="order-now-button" onclick="orderOnWhatsApp()">Order Now on WhatsApp</button>
+</div>
+
     <!-- Home Made Pickles Tab Content -->
     <div id="products" class="tab-content">
         <h2>Home Made Pickles</h2>
@@ -284,50 +393,72 @@
         <!-- Free Delivery Text -->
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
 
-        <!-- Order Now Button -->
-        <button class="order-now-button" onclick="orderOnWhatsApp('products')">Order Now</button>
+        <!-- Order Now on WhatsApp Button -->
+        <button class="order-now-button" onclick="orderOnWhatsApp('products')">Order Now on WhatsApp</button>
     </div>
     <!-- Tomorrow's Menu Tab Content -->
     <div id="todays-menu" class="tab-content">
         <h1>17-11-2024 Menu</h1>
-
-        <!-- Lunch Items Section -->
-        <div class="menu-section">
-            <h3>Lunch Items(Should be order befor 9AM)</h3>
-            <h4>Will be delivered between 12PM to 1PM)</h4>
-            <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
-                <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
-                <label>Fish Curry - 50/-</label>
+        <h1></h1>
+    <!-- Lunch Items Section -->
+    <div class="menu-section" id="lunch-menu">
+        <h3>Lunch Items (Should be ordered before 10AM)</h3>
+        <h4>Will be delivered between 12PM to 1PM)</h4>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Egg Curry" data-price="40">
-                <img src="https://i.postimg.cc/wj24R3CD/Egg-Curry.jpg" alt="Egg Curry" class="zoom-image">
-                <label>Egg Curry - 40/-</label>
-            </div>
-            <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
-                <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
-                <label>White Rice - 25/-</label>
-            </div>
+            <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
+            <label>Fish Curry - 50/-</label>
         </div>
-
-        <!-- Dinner Items Section -->
-        <div class="menu-section">
-            <h3>Dinner Items (Should be order befor 6PM)</h3>
-            <h4>Will be delivered between 8PM to 9PM)</h4>
-            <div class="menu-item">
-                <input type="checkbox" class="menu-checkbox" data-name="Chicken Dum Biryani" data-price="150">
-                <img src="https://i.postimg.cc/rm8J4ZZh/Chicken-Dum-Biryani.jpg" alt="Chicken Dum Biryani" class="zoom-image">
-                <label>Chicken Dum Biryani - 150/-</label>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Egg Curry" data-price="40">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
             </div>
+            <img src="https://i.postimg.cc/wj24R3CD/Egg-Curry.jpg" alt="Egg Curry" class="zoom-image">
+            <label>Egg Curry - 40/-</label>
         </div>
-        <!-- Free Delivery Text -->
-        <p class="free-delivery">Free Delivery in KPHB Area!</p>
-
-        <!-- Order Now Button -->
-        <button class="order-now-button" onclick="orderOnWhatsApp('todays-menu')">Order Now</button>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
+            <label>White Rice - 25/-</label>
+        </div>
     </div>
+
+    <!-- Dinner Items Section -->
+    <div class="menu-section" id="dinner-menu">
+        <h3>Dinner Items (Should be ordered before 6PM)</h3>
+        <h4>Will be delivered between 8PM to 9PM)</h4>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Chicken Dum Biryani" data-price="150">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/rm8J4ZZh/Chicken-Dum-Biryani.jpg" alt="Chicken Dum Biryani" class="zoom-image">
+            <label>Chicken Dum Biryani - 150/-</label>
+        </div>
+    </div>
+
+    <!-- Free Delivery Text -->
+    <p class="free-delivery">Free Delivery in KPHB Area!</p>
+
+    <!-- Order Now on WhatsApp Button -->
+    <button class="order-now-button" onclick="orderOnWhatsApp()">Order Now on WhatsApp</button>
+</div>
+
 
 
     <div id="Home-Made-Podulu" class="tab-content">
@@ -338,53 +469,76 @@
         <!-- Free Delivery Text -->
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
 
-        <!-- Order Now Button -->
-        <button class="order-now-button" onclick="orderOnWhatsApp('Home-Made-Podulu')">Order Now</button>
+        <!-- Order Now on WhatsApp Button -->
+        <button class="order-now-button" onclick="orderOnWhatsApp('Home-Made-Podulu')">Order Now on WhatsApp</button>
     </div>
 
-    <!-- Party Orders Tab Content -->
-    <div id="party-orders" class="tab-content">
-        <div class="party-section">
-            <h2>Party Orders (4-8 Members)</h2>
-            <p>Planning a birthday party, New Year celebration, or bachelor party? Order wholesome, delicious, and healthy food for your group of 4 to 8 members. We offer a variety of South Indian meals and biryanies that are sure to impress your guests!</p>
-            <p><strong>Why Choose Sanvi Home Foods for Party Orders?</strong></p>
-            <ul>
-                <li>Special menu options for parties such as Biryanies, South Indian meals, and more.</li>
-                <li>Minimal cost compared to food delivery apps.</li>
-                <li>Health-conscious and hygienic food made with fresh ingredients, no preservatives, no artificial colors, and no reused oils.</li>
-            </ul>
-            <p class="order-prior">Order one day prior to ensure availability.</p>
-            <p><strong>Contact us to place your party order today!</strong></p>
-            
-            <!-- Party Meal Options -->
-            <div class="party-item">
-                <input type="checkbox" class="party-item-checkbox" data-name="Vegetable Biryani (4 Members)" data-price="600">
-                <img src="https://i.postimg.cc/ZRp6btTC/Veg-Biryani.jpg" alt="Vegetable Biryani" class="zoom-image">
-                <label>Vegetable Biryani (4 Members) - 600/-</label>
-            </div>
-            <div class="party-item">
-                <input type="checkbox" class="party-item-checkbox" data-name="South Indian Meal (4 Members)" data-price="500">
-                <img src="https://i.postimg.cc/RF9mNK74/Meals.jpg" alt="South Indian Meal" class="zoom-image">
-                <label>South Indian Meal (4 Members) - 500/-</label>
-            </div>
-            <div class="party-item">
-                <input type="checkbox" class="party-item-checkbox" data-name="Chicken Dum Biryani Family Pack (Serves 3-4)" data-price="850">
-                <img src="https://i.postimg.cc/ZRQ3xbV7/Chicken-Dum-biryani.webp" alt="Chicken Dum Biryani Family Pack (Serves 3-4)" class="zoom-image">
-                <label>Chicken Dum Biryani Family Pack (Serves 3-4) - 850/-</label>
-            </div>
-        </div>
+<!-- Party Orders Tab Content -->
+<div id="party-orders" class="tab-content">
+    <h1>Party Orders (4-8 Members)</h1>
+    <p>Planning a birthday party, New Year celebration, or bachelor party? Order wholesome, delicious, and healthy food for your group of 4 to 8 members. We offer a variety of South Indian meals and biryanies that are sure to impress your guests!</p>
+    <p><strong>Why Choose Sanvi Home Foods for Party Orders?</strong></p>
+    <ul>
+        <li>Special menu options for parties such as Biryanies, South Indian meals, and more.</li>
+        <li>Minimal cost compared to food delivery apps.</li>
+        <li>Health-conscious and hygienic food made with fresh ingredients, no preservatives, no artificial colors, and no reused oils.</li>
+    </ul>
+    <p class="order-prior">Order one day prior to ensure availability.</p>
 
+    <!-- Party Meal Options Section -->
+    <div class="menu-section" id="party-menu">
+        <h3>Party Meal Options</h3>
+        
+        <!-- Vegetable Biryani -->
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Vegetable Biryani (4 Members)" data-price="600">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/ZRp6btTC/Veg-Biryani.jpg" alt="Vegetable Biryani" class="zoom-image">
+            <label>Vegetable Biryani (4 Members) - 600/-</label>
+        </div>
+        
+        <!-- South Indian Meal -->
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="South Indian Meal (4 Members)" data-price="500">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/RF9mNK74/Meals.jpg" alt="South Indian Meal" class="zoom-image">
+            <label>South Indian Meal (4 Members) - 500/-</label>
+        </div>
+        
+        <!-- Chicken Dum Biryani -->
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Chicken Dum Biryani Family Pack (Serves 3-4)" data-price="850">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/ZRQ3xbV7/Chicken-Dum-biryani.webp" alt="Chicken Dum Biryani" class="zoom-image">
+            <label>Chicken Dum Biryani Family Pack (Serves 3-4) - 850/-</label>
+        </div>
+    </div>
         <!-- Free Delivery Text -->
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
 
-        <!-- Order Now Button -->
-        <button class="order-now-button" onclick="orderOnWhatsApp('party-orders')">Order Now</button>
+        <!-- Order Now on WhatsApp Button -->
+        <button class="order-now-button" onclick="orderOnWhatsApp('party-orders')">Order Now on WhatsApp</button>
     </div>
+</div>
+
+
 <!-- CSS for Zoom Effect -->
 <style>
     .zoom-image {
         transition: transform 0.3s ease; /* Smooth transition */
-        transform-origin: left center; /* Anchor zoom to the left side */
+        transform-origin: center; /* Anchor zoom to the left side */
     }
     .zoom-image:hover {
         transform: scale(4.5); /* Scale up (adjust zoom level as needed) */
