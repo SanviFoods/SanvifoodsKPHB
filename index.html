@@ -342,6 +342,42 @@ function changeQuantity(button, change) {
             <p><strong>Contact Us:</strong></p>
             <p>Phone: <a href="tel:+919705969050">+919705969050</a></p>
             <p>Email: <a href="mailto:sanvihomefoodskphb@gmail.com">sanvihomefoodskphb@gmail.com</a></p>
+	    <!-- Reviews Section -->
+<div id="reviews" class="reviews-section">
+    <h2>Customer Reviews</h2>
+
+    <!-- Review Card -->
+    <div class="review-card">
+        <h3>Veerendra 917****626</h3>
+        <p class="review-text">"Mashroom Kaju curry, Absolutely delicious all my roomates are loved"</p>
+        <span class="rating">⭐⭐⭐⭐⭐</span>
+    </div>
+
+    <div class="review-card">
+        <h3>Hima pratheep 934****478</h3>
+        <p class="review-text">"Munakkada tomato and Panner curry Good to tast and felt like home food"</p>
+        <span class="rating">⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="review-card">
+        <h3>Manohar 928****482</h3>
+        <p class="review-text">Good, But koncham spice try cheyyali"</p>
+        <span class="rating">⭐⭐⭐</span>
+    </div>
+    <div class="review-card">
+        <h3>Chella Rao 970****644</h3>
+        <p class="review-text">"I’ve tried Fish curry tast was good but can be add more masala, Egg curry was extrodinary"</p>
+        <span class="rating">⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="review-card">
+        <h3>Preethi 91****700</h3>
+        <p class="review-text">"Taste chala bagundi"</p>
+        <span class="rating">⭐⭐⭐⭐⭐</span>
+    </div>
+
+
+    <!-- Add a Review Button -->
+    <button class="add-review-button" onclick="openReviewForm()">Thank you!</button>
+</div>
         </div>
     </div>
 
@@ -398,41 +434,51 @@ function changeQuantity(button, change) {
     </div>
     <!-- Tomorrow's Menu Tab Content -->
     <div id="todays-menu" class="tab-content">
-        <h1>17-11-2024 Menu</h1>
+        <h1>18-11-2024 Menu</h1>
         <h1></h1>
     <!-- Lunch Items Section -->
     <div class="menu-section" id="lunch-menu">
         <h3>Lunch Items (Should be ordered before 10AM)</h3>
         <h4>Will be delivered between 12PM to 1PM)</h4>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
+            <input type="checkbox" class="menu-checkbox" data-name="Chikkudukaya Tomato Curry" data-price="30">
             <div class="quantity-control">
-                <button disabled>+</button>
+                <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
-                <button disabled>+</button>
+                <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
-            <label>Fish Curry(1 Piece with gravy - 50/-<h4 class="red-text">SOLDOUT</h4></label>
+            <img src="https://i.postimg.cc/PxhRgzJ7/Chikkudukaya-Tomato.jpg" alt="Chikkudukaya Tomato Curry" class="zoom-image">
+            <label>Chikkudukaya Tomato Curry - 30/-</label>
         </div>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Egg Curry" data-price="40">
+            <input type="checkbox" class="menu-checkbox" data-name="Majjiga Pulusu" data-price="30">
             <div class="quantity-control">
-                <button disabled>+</button>
+                <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
-                <button disabled>+</button>
+                <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/wj24R3CD/Egg-Curry.jpg" alt="Egg Curry" class="zoom-image">
-            <label>Egg Curry(1 Egg with gravy) - 40/-<h4 class="red-text">SOLDOUT</h4></label>
+            <img src="https://i.postimg.cc/vHXrtJpk/Aalu-batani.jpg" alt="Majjiga Pulusu" class="zoom-image">
+            <label>Majjiga Pulusu - 30/-</label>
         </div>
         <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
             <div class="quantity-control">
-                <button disabled>+</button>
+                <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
-                <button disabled>+</button>
+                <button onclick="changeQuantity(this, 1)">+</button>
             </div>
             <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
-            <label>White Rice(Can serve 1 person) - 25/-<h4 class="red-text">SOLDOUT</h4></label>
+            <label>White Rice(Can serve 1 person) - 25/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" data-price="90">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/ZKcqBZ1B/Meals.jpg" alt="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" class="zoom-image">
+            <label>Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle - 90/-</label>
         </div>
     </div>
 
@@ -441,24 +487,34 @@ function changeQuantity(button, change) {
         <h3>Dinner Items (Should be ordered before 6PM)</h3>
         <h4>Will be delivered between 8PM to 9PM)</h4>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Chicken Dum Biryani" data-price="150">
+            <input type="checkbox" class="menu-checkbox" data-name="Majjiga Pulusu" data-price="30">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/rm8J4ZZh/Chicken-Dum-Biryani.jpg" alt="Chicken Dum Biryani" class="zoom-image">
-            <label>Chicken Dum Biryani(With 1 leg & 3to4 normal pieces) - 150/- <h4 class="red-text">AVAILABLE</h4></label>
+            <img src="https://i.postimg.cc/VLmbJKH6/Majjigapulusu.jpg" alt="Majjiga Pulusu" class="zoom-image">
+            <label>Majjiga Pulusu - 30/-</label>
         </div>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
+            <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
             <div class="quantity-control">
-                <button disabled>+</button>
+                <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
-                <button disabled>+</button>
+                <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
-            <label>Fish Curry(1 Piece with gravy) - 50/-<h4 class="red-text">FULLY ORDERED</h4></label>
+            <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
+            <label>White Rice(Can serve 1 person) - 25/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" data-price="90">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/ZKcqBZ1B/Meals.jpg" alt="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" class="zoom-image">
+            <label>Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle - 90/-</label>
         </div>
     </div>
 
