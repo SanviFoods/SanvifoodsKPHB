@@ -213,6 +213,124 @@
         .order-now-button:hover {
             background-color: #218838;
         }
+
+/* Base Styles for Body and Text */
+body {
+    background: linear-gradient(90deg, #ffecd2, #fcb69f);
+    animation: gradientAnimation 6s infinite alternate;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Responsive Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows tabs to wrap on smaller screens */
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    flex: 1 1 auto; /* Make tabs flexible */
+    text-align: center;
+    min-width: 120px; /* Ensures tabs are tappable on mobile */
+    transition: background-color 0.3s ease;
+}
+
+.tab.active-tab {
+    background-color: #f8b400;
+    color: white;
+    font-weight: bold;
+}
+
+/* Content */
+.tab-content {
+    padding: 20px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.tab-content.active-content {
+    display: block;
+    opacity: 1;
+}
+
+/* Gallery Responsive Design */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery img {
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+.info-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Responsive Design - Media Queries */
+@media (max-width: 768px) {
+    .tabs {
+        flex-direction: column; /* Stack tabs vertically on smaller screens */
+    }
+
+    .gallery img {
+        width: 120px;
+        height: 120px; /* Adjust image size for smaller screens */
+    }
+
+    .tab {
+        font-size: 14px; /* Make tab text smaller */
+    }
+
+    .tab-content {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs {
+        font-size: 12px;
+    }
+
+    .gallery img {
+        width: 100px;
+        height: 100px; /* Further adjust image size for very small screens */
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(90deg, #ffecd2, #fcb69f);
+    }
+    100% {
+        background: linear-gradient(90deg, #fcb69f, #ffecd2);
+    }
+}
+
         }
     </style>
     <script>
