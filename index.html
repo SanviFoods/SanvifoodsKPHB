@@ -36,9 +36,9 @@
         .active-content {
             display: block;
         }
-        .product, .menu-item, .party-item, .Home-Made-Podulu { margin: 20px 0; display: flex; align-items: center; }
-        .product img, .menu-item img, .party-item img, .Home-Made-Podulu img { width: 100px; height: 100px; margin-right: 20px; border-radius: 8px; }
-        .product label, .menu-item label, .party-item label, .Home-Made-Podulu label  { font-size: 18px; }
+        .product, .menu-item, .party-item, .Snack Items { margin: 20px 0; display: flex; align-items: center; }
+        .product img, .menu-item img, .party-item img, .Snack Items img { width: 100px; height: 100px; margin-right: 20px; border-radius: 8px; }
+        .product label, .menu-item label, .party-item label, .Snack Items label  { font-size: 18px; }
         .order-button { margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer; }
         .info-content { font-size: 18px; line-height: 1.6; }
 
@@ -114,11 +114,11 @@
                 font-size: 16px;
                 padding: 12px;
             }
-            .product img, .menu-item img, .party-item img, .Home-Made-Podulu img {
+            .product img, .menu-item img, .party-item img, .Snack Items img {
                 width: 80px;
                 height: 80px;
             }
-            .product label, .menu-item label, .party-item label, .Home-Made-Podulu label {
+            .product label, .menu-item label, .party-item label, .Snack Items label {
                 font-size: 16px;
             }
             .order-now-button {
@@ -138,11 +138,11 @@
                 font-size: 14px;
                 padding: 10px;
             }
-            .product img, .menu-item img, .party-item img, .Home-Made-Podulu img {
+            .product img, .menu-item img, .party-item img, .Snack Items img {
                 width: 70px;
                 height: 70px;
             }
-            .product label, .menu-item label, .party-item label, .Home-Made-Podulu label {
+            .product label, .menu-item label, .party-item label, .Snack Items label {
                 font-size: 14px;
             }
             .order-now-button {
@@ -248,7 +248,7 @@ body {
 }
 
 .tab.active-tab {
-    background-color: #f8b400;
+    background-color: #f8b40;
     color: white;
     font-weight: bold;
 }
@@ -259,6 +259,42 @@ body {
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+}
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.tab {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tab:hover {
+    color: #32CD32;
+    transform: scale(1.1);
+}
+
+.tab.active-tab {
+    color: #f56g;
+    text-shadow: 0px 2px 5px rgba(231, 76, 60, 0.5);
+    position: relative;
+}
+
+
+
+@keyframes underlineGrow {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
 }
 
 .tab-content.active-content {
@@ -349,6 +385,7 @@ body {
             document.querySelector(`[data-tab="${tabName}"]`).classList.add('active-tab');
         }
 
+
 function changeQuantity(button, change) {
         const input = button.parentElement.querySelector(".quantity-input");
         let currentValue = parseInt(input.value) || 1;
@@ -360,6 +397,21 @@ function changeQuantity(button, change) {
 
         input.value = currentValue;
     }
+function switchTab(tabName) {
+    const allTabs = document.querySelectorAll('.tab');
+    const allTabContents = document.querySelectorAll('.tab-content');
+
+    allTabs.forEach(tab => {
+        tab.classList.remove('active-tab');
+    });
+
+    allTabContents.forEach(content => {
+        content.classList.remove('active-content');
+    });
+
+    document.querySelector(`[data-tab="${tabName}"]`).classList.add('active-tab');
+    document.getElementById(tabName).classList.add('active-content');
+}
 
     function orderOnWhatsApp() {
         let orderMessage = "Hi, I would like to order the following items:\n\n";
@@ -436,13 +488,22 @@ function changeQuantity(button, change) {
 
     <!-- Tabs -->
     <div class="tabs">
-        <div class="tab active-tab" data-tab="info" onclick="switchTab('info')">Sanvi Home Foods Info</div>
-        <div class="tab" data-tab="products" onclick="switchTab('products')">Home Made Pickles</div>
-        <div class="tab" data-tab="todays-menu" onclick="switchTab('todays-menu')">Daily Menu</div>
-        <div class="tab" data-tab="party-orders" onclick="switchTab('party-orders')">Party Orders (4-8 Members)</div>
-	<div class="tab" data-tab="Home-Made-Podulu" onclick="switchTab('Home-Made-Podulu')">Home-Made-Podulu</div>
-
+    <div class="tab active-tab" data-tab="info" onclick="switchTab('info')">
+        Sanvi Home Foods Info
     </div>
+    <div class="tab" data-tab="products" onclick="switchTab('products')">
+        Home Made Pickles
+    </div>
+    <div class="tab" data-tab="todays-menu" onclick="switchTab('todays-menu')">
+        Daily Menu
+    </div>
+    <div class="tab" data-tab="party-orders" onclick="switchTab('party-orders')">
+        Party Orders (4-8 Members)
+    </div>
+    <div class="tab" data-tab="Snack Items" onclick="switchTab('Snack Items')">
+        Snack Items
+    </div>
+</div>
 
     <!-- Tab Content -->
     <!-- Home Food Info Tab Content -->
@@ -702,8 +763,8 @@ function changeQuantity(button, change) {
 
 
 
-    <div id="Home-Made-Podulu" class="tab-content">
-        <h2>Home-Made-Podulu</h2>
+    <div id="Snack Items" class="tab-content">
+        <h2>Snack Items</h2>
 	<h5>Will be added soon</h5>
         
 
@@ -711,7 +772,7 @@ function changeQuantity(button, change) {
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
 
         <!-- Order Now on WhatsApp Button -->
-        <button class="order-now-button" onclick="orderOnWhatsApp('Home-Made-Podulu')">Order Now on WhatsApp</button>
+        <button class="order-now-button" onclick="orderOnWhatsApp('Snack Items')">Order Now on WhatsApp</button>
     </div>
 
 <!-- Party Orders Tab Content -->
