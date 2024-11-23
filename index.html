@@ -674,7 +674,16 @@ function switchTab(tabName) {
     <div class="menu-section" id="dinner-menu">
         <h3>Dinner Items (Should be ordered before 6PM)</h3>
         <h4>Will be delivered between 8PM to 9PM)</h4>
-        <h1>Sorry service not Available Today</h1>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Tomato Rice" data-price="65">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/hGZWBLKS/Tomato-Rice.jpg" alt="Tomato Rice" class="zoom-image">
+            <label>Tomato Rice - 65/-</label>
+        </div>
     </div>
 
     <!-- Free Delivery Text -->
