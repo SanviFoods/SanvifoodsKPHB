@@ -666,8 +666,36 @@ function switchTab(tabName) {
     <div class="menu-section" id="lunch-menu">
         <h3>Lunch Items (Should be ordered before 10AM)</h3>
         <h4>Will be delivered between 12PM to 1PM)</h4>
-        <h1>Sorry! Service not available for Lunch</h1>
-
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Gongura Ckicken Curry" data-price="80">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/xTxLXWyM/Gongura-chicken.jpg" alt="Gongura Ckicken Curry" class="zoom-image">
+            <label>Gongura Ckicken Curry - 80/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Chicken fry" data-price="80">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/NMqcV2xD/chicken-ghee-roast.jpg" alt="Chicken fry" class="zoom-image">
+            <label>Chicken fry - 80/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
+            <label>White Rice(Can serve 1 person) - 25/-</label>
+        </div>
     </div>
 
     <!-- Dinner Items Section -->
@@ -675,14 +703,14 @@ function switchTab(tabName) {
         <h3>Dinner Items (Should be ordered before 6PM)</h3>
         <h4>Will be delivered between 8PM to 9PM)</h4>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Tomato Rice" data-price="65">
+            <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/hGZWBLKS/Tomato-Rice.jpg" alt="Tomato Rice" class="zoom-image">
-            <label>Tomato Rice - 65/-</label>
+            <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
+            <label>Fish Curry - 50/-</label>
         </div>
         <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="Egg Curry" data-price="35">
@@ -695,14 +723,14 @@ function switchTab(tabName) {
             <label>Egg Curry - 35/-</label>
         </div>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Aalu Batani Curry" data-price="30">
+            <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/vHXrtJpk/Aalu-batani.jpg" alt="Aalu Batani Curry" class="zoom-image">
-            <label>Aalu Batani Curry - 30/-</label>
+            <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
+            <label>White Rice(Can serve 1 person) - 25/-</label>
         </div>
     </div>
 
