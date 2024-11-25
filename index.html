@@ -36,9 +36,9 @@
         .active-content {
             display: block;
         }
-        .product, .menu-item, .party-item, .Snack Items { margin: 20px 0; display: flex; align-items: center; }
-        .product img, .menu-item img, .party-item img, .Snack Items img { width: 100px; height: 100px; margin-right: 20px; border-radius: 8px; }
-        .product label, .menu-item label, .party-item label, .Snack Items label  { font-size: 18px; }
+        .product, .menu-item, .party-item, .SnackItems { margin: 20px 0; display: flex; align-items: center; }
+        .product img, .menu-item img, .party-item img, .SnackItems img { width: 100px; height: 100px; margin-right: 20px; border-radius: 8px; }
+        .product label, .menu-item label, .party-item label, .SnackItems label  { font-size: 18px; }
         .order-button { margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer; }
         .info-content { font-size: 18px; line-height: 1.6; }
 
@@ -114,16 +114,44 @@
                 font-size: 16px;
                 padding: 12px;
             }
-            .product img, .menu-item img, .party-item img, .Snack Items img {
+            .product img, .menu-item img, .party-item img, .SnackItems img {
                 width: 80px;
                 height: 80px;
             }
-            .product label, .menu-item label, .party-item label, .Snack Items label {
+            .product label, .menu-item label, .party-item label, .SnackItems label {
                 font-size: 16px;
             }
             .order-now-button {
                 width: 100%;
                 font-size: 18px;
+	    .product, .menu-item, .party-item, .Snack\ Items {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+.product img, .menu-item img, .party-item img, .Snack\ Items img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+.product label, .menu-item label, .party-item label, .Snack\ Items label {
+    font-size: 18px;
+}
+.order-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.info-content {
+    font-size: 18px;
+    line-height: 1.6;
+}
             }
         }
 
@@ -138,11 +166,11 @@
                 font-size: 14px;
                 padding: 10px;
             }
-            .product img, .menu-item img, .party-item img, .Snack Items img {
+            .product img, .menu-item img, .party-item img, .SnackItems img {
                 width: 70px;
                 height: 70px;
             }
-            .product label, .menu-item label, .party-item label, .Snack Items label {
+            .product label, .menu-item label, .party-item label, .SnackItems label {
                 font-size: 14px;
             }
             .order-now-button {
@@ -414,32 +442,32 @@ function switchTab(tabName) {
 }
 
     function orderOnWhatsApp() {
-        let orderMessage = "Hi, I would like to order the following items:\n\n";
-        let grandTotal = 0;
-        let itemsSelected = false;
+    let orderMessage = "Hi, I would like to order the following items:\n\n";
+    let grandTotal = 0;
+    let itemsSelected = false;
 
-        // Loop through each tab
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(tab => {
-            const tabId = tab.getAttribute('data-tab'); // Get tab ID
+    // Loop through each tab
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+        const tabId = tab.getAttribute('data-tab'); // Get tab ID
 
-            // Select all checkboxes inside this tab (product, menu, party items)
-            const selectedCheckboxes = document.querySelectorAll(`#${tabId} .product-checkbox, #${tabId} .menu-checkbox, #${tabId} .party-item-checkbox`);
+        // Select all checkboxes inside this tab (product, menu, party items, SnackItems)
+        const selectedCheckboxes = document.querySelectorAll(`#${tabId} .product-checkbox, #${tabId} .menu-checkbox, #${tabId} .party-item-checkbox, #${tabId} .snack-item-checkbox`);
 
-            selectedCheckboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    itemsSelected = true;
-                    const itemName = checkbox.getAttribute("data-name");
-                    const itemPrice = parseInt(checkbox.getAttribute("data-price"));
-                    const quantityInput = checkbox.closest('.menu-item').querySelector(".quantity-input");
-                    const quantity = parseInt(quantityInput.value) || 1;
-                    const totalPrice = quantity * itemPrice;
+        selectedCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                itemsSelected = true;
+                const itemName = checkbox.getAttribute("data-name");
+                const itemPrice = parseInt(checkbox.getAttribute("data-price"));
+                const quantityInput = checkbox.closest('.menu-item').querySelector(".quantity-input");
+                const quantity = parseInt(quantityInput.value) || 1;
+                const totalPrice = quantity * itemPrice;
 
-                    grandTotal += totalPrice;
+                grandTotal += totalPrice;
 
-                    // Add item details to order message
-                    orderMessage += `${itemName} - ${itemPrice}/- (Quantity: ${quantity}, Total: ${totalPrice}/-)\n`;
-                }
+                // Add item details to order message
+                orderMessage += `${itemName} - ${itemPrice}/- (Quantity: ${quantity}, Total: ${totalPrice}/-)\n`;
+            }
             });
         });
 
@@ -500,8 +528,8 @@ function switchTab(tabName) {
     <div class="tab" data-tab="party-orders" onclick="switchTab('party-orders')">
         Party Orders (4-8 Members)
     </div>
-    <div class="tab" data-tab="Snack Items" onclick="switchTab('Snack Items')">
-        Snack Items
+    <div class="tab" data-tab="SnackItems" onclick="switchTab('SnackItems')">
+        SnackItems
     </div>
 </div>
 
@@ -662,7 +690,7 @@ function switchTab(tabName) {
     <!-- Tomorrow's Menu Tab Content -->
     <div id="todays-menu" class="tab-content">
         <h1>
-    25-11-2024 Menu 
+    23-11-2024 Menu 
     <span class="free-delivery" style="color: blue;">
      (Weekly orders are accepted for bachelors)
     </span>
@@ -768,8 +796,8 @@ function switchTab(tabName) {
 
 
 
-    <div id="Snack Items" class="tab-content">
-        <h2>Snack Items</h2>
+    <div id="SnackItems" class="tab-content">
+        <h2>SnackItems</h2>
         <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="Kara-Bundi" data-price="80">
             <div class="quantity-control">
@@ -795,7 +823,7 @@ function switchTab(tabName) {
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
 
         <!-- Order Now on WhatsApp Button -->
-        <button class="order-now-button" onclick="orderOnWhatsApp('Snack Items')">Order Now on WhatsApp</button>
+        <button class="order-now-button" onclick="orderOnWhatsApp('SnackItems')">Order Now on WhatsApp</button>
     </div>
 
 <!-- Party Orders Tab Content -->
