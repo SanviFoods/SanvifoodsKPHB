@@ -612,13 +612,12 @@ function switchTab(tabName) {
 <div id="products" class="tab-content">
         <h2>
     Home Made Pickles 
-    <span class="free-delivery" style="color: blue;">
-     (You can try 50g to 100g by buying)
-    </span>
-</h2>
+    </h2>
     <h5>(All India Delivery-Shipping charges applicable)</h5>
     <!-- Non-Veg Pickles Items -->
-    <h3>Non-Veg Pickles Items</h3>
+    <h3>Non-Veg Pickles Items <span class="free-delivery" style="color: blue;">
+     (Can try 50g to 100g by ordering)
+    </span></h3>
         <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="Prawns pickle (250g)" data-price="370" >
             <div class="quantity-control">
@@ -650,8 +649,19 @@ function switchTab(tabName) {
             <label>Andhra Style Chicken Pickle with Bone - Godavari Style (250g) - 280/-</label>
         </div>
     <!-- Veg Pickles Items -->
-    <h3>Veg Pickles Items</h3>
-    <h5>Will be added Soon</h5>
+    <h3>Veg Pickles Items<span class="free-delivery" style="color: blue;">
+     (Can try 125g by ordering)
+    </span></h3>
+            <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Kottimeera Pickle 250g " data-price="80">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/j5PsQ2Zw/Kottimeera-pickle-Nilva-pacchadi.jpg" alt="Kottimeera Pickle " class="zoom-image">
+            <label>Kottimeera Pickle 250g  - 80/-</label>
+        </div>
 
     
 
@@ -695,34 +705,54 @@ function switchTab(tabName) {
     <!-- Tomorrow's Menu Tab Content -->
     <div id="todays-menu" class="tab-content">
         <h1>
-    30-11-2024 Menu 
+    01-12-2024 Menu 
     <span class="free-delivery" style="color: blue;">
      (Weekly orders are accepted for bachelors)
     </span>
 </h1>
     <!-- Lunch Items Section -->
     <div class="menu-section" id="lunch-menu">
-        <h3>Lunch Items (Should be ordered before 10AM)</h3>
+        <h3>Lunch Items (Should be ordered before 11AM)</h3>
         <h4>Will be delivered between 12PM to 1PM)</h4>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Pappu Gongura" data-price="30">
+            <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/7hC5jJbh/Pappu-gongura.jpg" alt="Pappu Gongura" class="zoom-image">
-            <label>Pappu Gongura - 30/-</label>
+            <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
+            <label>Fish Curry(One piece) - 50/-</label>
         </div>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Cabbage Fry" data-price="35">
+            <input type="checkbox" class="menu-checkbox" data-name="Chicken Curry" data-price="80">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/B6PrPJVk/Cabbage-Fry.jpg" alt="Cabbage Fry" class="zoom-image">
-            <label>Cabbage Fry - 35/-</label>
+            <img src="https://i.postimg.cc/4x5HR4Jy/Chicken-Curry.jpg" alt="Chicken Curry" class="zoom-image">
+            <label>Chicken Curry - 80/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Egg Omlet (Double)" data-price="30">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/3Jw0TM1y/Double-Egg-Omlet.jpg" alt="Egg Omlet (Double)" class="zoom-image">
+            <label>Egg Omlet (Double) - 30/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Egg fry(Pulta)" data-price="30">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/HLqmxMbc/Egg-Fry.jpg" alt="Egg fry(Pulta)" class="zoom-image">
+            <label>Egg fry(Pulta) - 30/-</label>
         </div>
         <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
@@ -733,16 +763,6 @@ function switchTab(tabName) {
             </div>
             <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
             <label>White Rice(Can serve 1 person) - 25/-</label>
-        </div>
-        <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" data-price="90">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/ZKcqBZ1B/Meals.jpg" alt="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" class="zoom-image">
-            <label>Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle - 90/-</label>
         </div>
     </div>
 
@@ -751,24 +771,44 @@ function switchTab(tabName) {
         <h3>Dinner Items (Should be ordered before 6PM)</h3>
         <h4>Will be delivered between 8PM to 9PM)</h4>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Beans Aalu Tomato" data-price="30">
+            <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/dV79GnFk/Beans-Aalu-Tomato-Curry.jpg" alt="Beans Aalu Tomato" class="zoom-image">
-            <label>Beans Aalu Tomato - 30/-</label>
+            <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
+            <label>Fish Curry(One piece) - 50/-</label>
         </div>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Tomato Rasam" data-price="30">
+            <input type="checkbox" class="menu-checkbox" data-name="Chicken Fry" data-price="80">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
                 <input type="number" class="quantity-input" min="1" value="1">
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
-            <img src="https://i.postimg.cc/hG5KzDSR/tomato-rasam.jpg" alt="Tomato Rasam" class="zoom-image">
-            <label>Tomato Rasam - 30/-</label>
+            <img src="https://i.postimg.cc/7PnSksB8/Chickenfry.jpg" alt="Chicken Fry" class="zoom-image">
+            <label>Chicken Fry - 80/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Egg Curry" data-price="35">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/wj24R3CD/Egg-Curry.jpg" alt="Egg Curry" class="zoom-image">
+            <label>Egg Curry(One Egg with gravy) - 35/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Bagara Rice" data-price="50">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/NfSXksq6/Bagara-Rice.jpg" alt="Bagara Rice" class="zoom-image">
+            <label>Bagara Rice (Can serve 1 person) - 50/-</label>
         </div>
         <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
@@ -779,16 +819,6 @@ function switchTab(tabName) {
             </div>
             <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
             <label>White Rice(Can serve 1 person) - 25/-</label>
-        </div>
-        <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" data-price="90">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/ZKcqBZ1B/Meals.jpg" alt="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" class="zoom-image">
-            <label>Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle - 90/-</label>
         </div>
     </div>
 
@@ -856,7 +886,7 @@ function switchTab(tabName) {
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
             <img src="https://i.postimg.cc/ZRp6btTC/Veg-Biryani.jpg" alt="Vegetable Biryani" class="zoom-image">
-            <label>Vegetable Biryani (4 Members) - 600/-</label>
+            <label>Vegetable Biryani (4-5 Members) - 600/-</label>
         </div>
         
         <!-- South Indian Meal -->
@@ -868,7 +898,7 @@ function switchTab(tabName) {
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
             <img src="https://i.postimg.cc/RF9mNK74/Meals.jpg" alt="South Indian Meal" class="zoom-image">
-            <label>South Indian Meal (4 Members) - 500/-</label>
+            <label>South Indian Meal (Plate) - 120/-</label>
         </div>
         
         <!-- Chicken Dum Biryani -->
@@ -880,7 +910,7 @@ function switchTab(tabName) {
                 <button onclick="changeQuantity(this, 1)">+</button>
             </div>
             <img src="https://i.postimg.cc/ZRQ3xbV7/Chicken-Dum-biryani.webp" alt="Chicken Dum Biryani" class="zoom-image">
-            <label>Chicken Dum Biryani Family Pack (Serves 3-4) - 850/-</label>
+            <label>Chicken Dum Biryani Family Pack (Serves 4-5) - 850/-</label>
         </div>
     </div>
         <!-- Free Delivery Text -->
