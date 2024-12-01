@@ -781,16 +781,6 @@ function switchTab(tabName) {
         <h3>Dinner Items (Should be ordered before 7PM)</h3>
         <h4>Will be delivered between 8PM to 9PM)</h4>
         <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
-            <label>Fish Curry(One piece) - 50/-</label>
-        </div>
-        <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="Chicken Fry" data-price="80">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
@@ -799,6 +789,16 @@ function switchTab(tabName) {
             </div>
             <img src="https://i.postimg.cc/7PnSksB8/Chickenfry.jpg" alt="Chicken Fry" class="zoom-image">
             <label>Chicken Fry - 80/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Tomato Rasam" data-price="30">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/hG5KzDSR/tomato-rasam.jpg" alt="Tomato Rasam" class="zoom-image">
+            <label>Tomato Rasam - 30/-</label>
         </div>
         <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="Egg Curry" data-price="35">
