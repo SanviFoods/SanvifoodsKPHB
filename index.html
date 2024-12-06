@@ -853,9 +853,76 @@ function switchTab(tabName) {
         <h4>Will be delivered between 8PM to 9PM)</h4>
         
     
-        <span class="free-delivery" style="color: blue;">
-     (Items Will be Added Soon..)
-    </span>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Pool Makhana Kaju Curry" data-price="50">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.ibb.co/cyDCkTf/Pool-Makhana-Kaju.jpg" alt="Pool Makhana Kaju Curry" class="zoom-image">
+            <label>Pool Makhana Kaju Curry- 50/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Gutti Vankaya" data-price="30">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/xdnDMp6L/Gutti-vankaya-Curry.jpg" alt="Gutti Vankaya" class="zoom-image">
+            <label>Gutti Vankaya - 30/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Chicken Curry" data-price="80">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/4x5HR4Jy/Chicken-Curry.jpg" alt="Chicken Curry" class="zoom-image">
+            <label>Chicken Curry - 80/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Egg Omlet (Double)" data-price="30">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/3Jw0TM1y/Double-Egg-Omlet.jpg" alt="Egg Omlet (Double)" class="zoom-image">
+            <label>Egg Omlet (Double) - 30/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Kunda Perugu(Curd)" data-price="10">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/L5yymVjQ/curd.jpg" alt="Kunda Perugu(Curd)" class="zoom-image">
+            <label>Kunda Perugu(Curd) 100g - 10/-</label>
+        </div>
+            <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
+            <label>White Rice(Can serve 1 person) - 25/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" data-price="90">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/ZKcqBZ1B/Meals.jpg" alt="Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle" class="zoom-image">
+            <label>Mini Meals(Rice,Pulihora, 2 Curries, Curd(100g), 1Papad, 1 Pickle - 90/-</label>
+        </div>
     </div>
 
     <!-- Free Delivery Text -->
