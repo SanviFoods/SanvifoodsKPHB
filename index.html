@@ -843,14 +843,27 @@ function switchTab(tabName) {
     <!-- Dinner Items Section -->
     <div class="menu-section" id="dinner-menu">
         <h3>Dinner Items (Should be Order Before 7PM) </h3>
-	<span class="free-delivery" style="color: blue;">
-     <h2>Items will be Added Soon..)</h2>
-    </span>
-        
-        
-    
-
-    </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Majjiga Pulusu" data-price="30">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/NjF6qWZq/Majjigapulusu.jpg" alt="Majjiga Pulusu" class="zoom-image">
+            <label>Majjiga Pulusu - 30/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Dondakaya Kobbarikaya" data-price="40">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/nLJnc5LF/Dondakaya-Kobbari-fry.jpg" alt="Dondakaya Kobbarikaya" class="zoom-image">
+            <label>Dondakaya Kobbarikaya(Freshly Prepared) - 40/-</label>
+        </div>  
+      </div>
 
     <!-- Free Delivery Text -->
     <p class="free-delivery">Free Delivery in KPHB Area!</p>
