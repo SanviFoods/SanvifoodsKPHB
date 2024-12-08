@@ -769,7 +769,7 @@ function switchTab(tabName) {
     <!-- Tomorrow's Menu Tab Content -->
     <div id="todays-menu" class="tab-content">
         <h1>
-    07-12-2024 Menu 
+    08-12-2024 Menu 
     <span class="free-delivery" style="color: blue;">
      (Weekly orders are accepted for bachelors)
     </span>
@@ -778,56 +778,6 @@ function switchTab(tabName) {
     <div class="menu-section" id="lunch-menu">
         <h3>Lunch Items (Should be ordered before 11AM)</h3>
         <h4>Will be delivered between 12PM to 1PM)</h4>
-        <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Mashroom Kaaju curry" data-price="60">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/6qLGCWZv/Mashroom-Kaaju.png" alt="Mashroom Kaaju curry" class="zoom-image">
-            <label>Mashroom Kaaju curry - 60/-</label>
-        </div>
-        <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Kandipodi with Pure Cow Ghee(10g+5g)" data-price="15">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/2SpYbCNz/kandi-podi-With-Gee.jpg" alt="Kandipodi with Pure Cow Ghee(10g+5g)" class="zoom-image">
-            <label>Kandipodi with Pure Cow Ghee(10g+5g) - 15/-</label>
-        </div>
-        <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Dondakaya Kobbarikaya" data-price="40">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/nLJnc5LF/Dondakaya-Kobbari-fry.jpg" alt="Dondakaya Kobbarikaya" class="zoom-image">
-            <label>Dondakaya Kobbarikaya - 40/-</label>
-        </div>
-        <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Egg Omlet (Double)" data-price="30">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/3Jw0TM1y/Double-Egg-Omlet.jpg" alt="Egg Omlet (Double)" class="zoom-image">
-            <label>Egg Omlet (Double) - 30/-</label>
-        </div>
-            <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="White Rice" data-price="25">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/sDk7C0zM/Whiterice.png" alt="White Rice" class="zoom-image">
-            <label>White Rice(Can serve 1 person) - 25/-</label>
-        </div>
         <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="Chicken Curry" data-price="80">
             <div class="quantity-control">
@@ -838,31 +788,35 @@ function switchTab(tabName) {
             <img src="https://i.postimg.cc/4x5HR4Jy/Chicken-Curry.jpg" alt="Chicken Curry" class="zoom-image">
             <label>Chicken Curry - 80/-</label>
         </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Fish Curry" data-price="50">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/PrJ6w655/Fish-Curry.png" alt="Fish Curry" class="zoom-image">
+            <label>Fish Curry (1Piece With Gravy) - 50/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Fish Fry" data-price="50">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.ibb.co/bN0T11h/Fish-Fry.jpg" alt="Fish Fry" class="zoom-image">
+            <label>Fish Fry(1Piece) - 50/-</label>
+        </div>
     </div>
 
     <!-- Dinner Items Section -->
     <div class="menu-section" id="dinner-menu">
         <h3>Dinner Items (Should be Order Before 7PM) </h3>
-        <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Majjiga Pulusu" data-price="30">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/NjF6qWZq/Majjigapulusu.jpg" alt="Majjiga Pulusu" class="zoom-image">
-            <label>Majjiga Pulusu - 30/-</label>
-        </div>
-        <div class="menu-item">
-            <input type="checkbox" class="menu-checkbox" data-name="Dondakaya Kobbarikaya" data-price="40">
-            <div class="quantity-control">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" class="quantity-input" min="1" value="1">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-            <img src="https://i.postimg.cc/nLJnc5LF/Dondakaya-Kobbari-fry.jpg" alt="Dondakaya Kobbarikaya" class="zoom-image">
-            <label>Dondakaya Kobbarikaya(Freshly Prepared) - 40/-</label>
-        </div>  
+    <span class="free-delivery" style="color: blue;">
+     <h2>Items Will be Added Soon </h2>
+    </span>
+  
       </div>
 
     <!-- Free Delivery Text -->
