@@ -922,6 +922,16 @@ function switchTab(tabName) {
             <label>Chicken Curry - 80/-</label>
         </div>
         <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Roti With Chicken Curry " data-price="120">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/yd6dcGMG/Roti-With-Chicken-curry.jpg" alt="Roti With Chicken Curry " class="zoom-image">
+            <label>Roti With Chicken Curry(4 Roti's, Chicken Curry and Gongura Pickle) - 120/-</label>
+        </div>
+        <div class="menu-item">
             <input type="checkbox" class="menu-checkbox" data-name="Egg Omlet (Double)" data-price="30">
             <div class="quantity-control">
                 <button onclick="changeQuantity(this, -1)">-</button>
