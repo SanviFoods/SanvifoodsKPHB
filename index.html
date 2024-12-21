@@ -955,7 +955,27 @@ function switchTab(tabName) {
             </div>
             <img src="https://i.postimg.cc/KvTX13PX/Whats-App-Image-2024-11-25-at-9-40-44-AM.jpg" alt="Karapusa" class="zoom-image">
             <label>Karapusa 250g - 80/-</label>
-        </div>       
+        </div> 
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Onion Pakoda" data-price="50">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/KjxJ5brL/Oinion-Pakoda.jpg" alt="Onion Pakoda" class="zoom-image">
+            <label>Onion Pakoda - 50/-</label>
+        </div>
+        <div class="menu-item">
+            <input type="checkbox" class="menu-checkbox" data-name="Mirchi Bajji" data-price="50">
+            <div class="quantity-control">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+            <img src="https://i.postimg.cc/3Rjp8v55/Home-Made-Mirapakaya-Bajji.jpg" alt="Mirchi Bajji" class="zoom-image">
+            <label>Mirchi Bajji(4) - 50/-</label>
+        </div>      
 
         <!-- Free Delivery Text -->
         <p class="free-delivery">Free Delivery in KPHB Area!</p>
